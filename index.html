@@ -11,8 +11,53 @@
 </head>
 <body>
     <!-- Div that contains top bar with high score and timer -->
-    
-    <!-- Div that contains top bar with high score and timer -->
+    <nav class="navbar navbar-light bg-light">
+        <button class="navbar-brand mb-0 h1" id="high-scores">High Scores</button>
+        <span class="navbar-brand mb-0 h2">Timer: 60 seconds</span>
+    </nav>
+    <br>
+    <div class="container">
+    <!-- Div that contains welcome page -->
+        <div class="welcome">
+            <h2>Welcome to my Geography quiz!</h2>
+            <hr>
+            <p>This quiz will have five questions to test your knowledge.</p>
+            <p>You will have 60 seconds total to answer all five questions.</p>
+            <p>Each correct answer is worth <strong>five points</strong>.</p>
+            <p>Each incorrect answer will result in a 10 second time penalty.</p>
+            <p>At the end you will be able to enter your initials and track your high score.</p>
+            <p>GOOD LUCK!</p>
+            <button type="button" class="btn btn-success" id="start-btn">Start Quiz</button>
+        </div>
+    <!-- Div that contains content for questions -->
+        <div class="questions">
+            <h3 id="question-prompt"></h3>
+            <hr>
+            <button type="button" class="btn btn-secondary btn-lg btn-block" id="answer1"></button>
+            <button type="button" class="btn btn-secondary btn-lg btn-block" id="answer2"></button>
+            <button type="button" class="btn btn-secondary btn-lg btn-block" id="answer3"></button>
+            <button type="button" class="btn btn-secondary btn-lg btn-block" id="answer4"></button>
+            <hr>
+        </div>
+    <!-- Div that shows final score and submit initials-->
+        <div class="ending">
+            <h3 id="final-score">Final Score: </h3>
+            <p>Please enter your initials:</p>
+            <input type="text" name="initials" id="initials">
+            <button type="button" class="btn btn-primary" id="submit">Submit</button>
+        </div>
+    <!-- Div that shows list of final scores, button to clear, button to restart-->
+        <div class="scores-list">
+            <h3>High Scores:</h3>
+            <ol></ol>
+            <div class="row">
+                <div class="col-md-12">
+                    <button id="restart">Start Over</button>
+                    <button id="clear">Clear High Scores</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
