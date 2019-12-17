@@ -1,4 +1,30 @@
 // DOM elements
+// Sub containers
+var welcome = document.getElementById("welcome");
+var questionList = document.getElementById("questionList");
+var ending = document.getElementById("ending");
+var scoresList = document.getElementById("scoresList");
+
+// Text
+var timer = document.getElementById("timer");
+var quesPrompt = document.getElementById("question-prompt");
+var finScore = document.getElementById("final-score");
+
+// Input
+var initials = document.getElementById("initials");
+
+// Buttons
+var hiScoresBtn = document.getElementById("high-scores");
+var startBtn = document.getElementById("start-btn");
+var answer1 = document.getElementById("answer1");
+var answer2 = document.getElementById("answer2");
+var answer3 = document.getElementById("answer3");
+var answer4 = document.getElementById("answer4");
+var submitScoreBtn = document.getElementById("submit");
+var restartBtn = document.getElementById("restart");
+var clearBtn = document.getElementById("clear");
+
+var currentQuestion = 0;
 
 // Questions
 var questions = [
@@ -31,24 +57,50 @@ var questions = [
 
 // Event listeners
 
-    // Start quiz
+// Submit initials
 
-    // Click answers (send to next question)
+// Clear high scores
 
-    // Submit initials
+// Start quiz over
 
-    // Clear high scores
+// Functions & event listeners
+$(document).ready(function () {
+    questionList.style.display = "none";
+    ending.style.display = "none";
+    scoresList.style.display = "none";
 
-    // Start quiz over
+    // Start quiz - start first question; start timer
 
-// Functions
+    $("#start-btn").on("click", function () {
+        welcome.style.display = "none";
+        questionList.style.display = "block";
 
-    // Start quiz
+        quesPrompt.textContent = questions[0].question;
+        answer1.textContent = questions[0].choices[0];
+        answer2.textContent = questions[0].choices[1];
+        answer3.textContent = questions[0].choices[2];
+        answer4.textContent = questions[0].choices[3];
+    })
 
+    // Cycle through questions - click answers, send to next question, deduct 10 seconds from time if wrong
+
+    nextQuestion();
+
+    function nextQuestion() {
+        $(".btn-block").on("click", function () {
+            currentQuestion++;
+            quesPrompt.textContent = questions[currentQuestion].question;
+            answer1.textContent = questions[currentQuestion].choices[0];
+            answer2.textContent = questions[currentQuestion].choices[1];
+            answer3.textContent = questions[currentQuestion].choices[2];
+            answer4.textContent = questions[currentQuestion].choices[3];
+
+            if(currentQuestion>)
+        })
+    }
     // Log correct/incorrect answers
-
-    // Cycle through questions
 
     // Final score
 
     // Store high scores
+})
