@@ -156,6 +156,7 @@ $(document).ready(function () {
 
 // High Score button
     $("#high-scores").on("click", function(){
+        window.clearInterval(timerReference);
         initScores();
     })
 
