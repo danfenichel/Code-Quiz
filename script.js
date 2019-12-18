@@ -31,6 +31,8 @@ var timerCountdown = document.getElementById("timer");
 var timerReference = undefined;
 
 var currentQuestion = 0;
+var userScores = JSON.parse(localStorage.getItem("scoreArr"));
+
 
 // Questions
 var questions = [
@@ -116,9 +118,14 @@ $(document).ready(function () {
     });
 
 // Save score and initials with Submit button
+
+// Can't get this to work properly :(
     $("#submit").on("click", function(){
         var names = $("#initials").val();
-        
+        var scoreArr = [names, timer];
+        localStorage.setItem("scoreArr", JSON.stringify(scoreArr));
+        scoreTally.textContent = userScores;
+        initScores();
     });
 
 // Function to show the final score once quiz is complete
@@ -138,7 +145,7 @@ $(document).ready(function () {
         welcome.style.display = "none";
         questionList.style.display = "none";
         scoreTally.empty();
-        $.each(scores, function (index, value){
+        $.each(userScores, function (index, value){
             var initials = value[0];
             var score = value[1];
             var newScores = $("<li>");
@@ -147,9 +154,21 @@ $(document).ready(function () {
         });
     };
 
-    // Log correct/incorrect answers
+// High Score button
+    $("#high-scores").on("click", function(){
+        initScores();
+    })
 
-    // Final score
+// Clear the local storage
+    $("#clear").on("click", function(){
+        userScores = [];
+        localStorage.setItem("scoreArr", JSON.stringify(userScores));
+        $("#scoreTally").empty();
+    });
 
-    // Store high scores
+// Restart with Start Over button
+    $("#restart").on("click", function(){
+        location.reload();
+    });
+
 });
