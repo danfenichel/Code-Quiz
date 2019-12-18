@@ -31,7 +31,6 @@ var timerCountdown = document.getElementById("timer");
 var timerReference = undefined;
 
 var currentQuestion = 0;
-var scores = JSON.parse(localStorage.getItem("scores") || "[]");
 
 // Questions
 var questions = [
@@ -62,14 +61,6 @@ var questions = [
     }
 ];
 
-// Event listeners
-
-// Submit initials
-
-// Clear high scores
-
-// Start quiz over
-
 $(document).ready(function () {
 // Initial state of all divs
     questionList.style.display = "none";
@@ -98,7 +89,8 @@ $(document).ready(function () {
     });
 
 // Cycle through questions - click answers, send to next question, deduct 10 seconds from time if wrong
-    $(".btn-block").on("click", function () {
+    $(".btn-block").on("click", function (event) {
+        event.preventDefault();
         currentQuestion++;
         if(currentQuestion < 5){
             quesPrompt.textContent = questions[currentQuestion].question;
@@ -108,7 +100,25 @@ $(document).ready(function () {
             answer4.textContent = questions[currentQuestion].choices[3];
         } else {
             endScore();
-        }
+        };
+
+        // Deduct 10 seconds from time for wrong answer
+        var correctAnswer = questions[currentQuestion - 1].answer;
+        var userAnswer = event.target.innerText;
+        if(userAnswer === correctAnswer){
+            alert("Correct response!");
+        } else {
+            alert("Incorrect response!");
+            timer -= 10;
+        };
+        // Can't get the questions to match with the correct answer! Off by 1 for some reason
+        console.log(correctAnswer);
+    });
+
+// Save score and initials with Submit button
+    $("#submit").on("click", function(){
+        var names = $("#initials").val();
+        
     });
 
 // Function to show the final score once quiz is complete
