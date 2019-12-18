@@ -31,7 +31,7 @@ var timerCountdown = document.getElementById("timer");
 var timerReference = undefined;
 
 var currentQuestion = 0;
-var userScores = JSON.parse(localStorage.getItem("scoreArr"));
+var userScores = JSON.parse(localStorage.getItem("userScores"));
 
 
 // Questions
