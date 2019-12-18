@@ -15,7 +15,7 @@
     <!-- Div that contains top bar with high score and timer -->
     <nav class="navbar navbar-light bg-light">
         <button class="navbar-brand mb-0 h1" id="high-scores">High Scores</button>
-        <span class="navbar-brand mb-0 h2" id="timer">Timer: 60 seconds</span>
+        <span class="navbar-brand mb-0 h2">Timer: <span id="timer"></span></span>
     </nav>
     <br>
     <div class="container">
@@ -25,7 +25,7 @@
             <hr>
             <p>This quiz will have five questions to test your knowledge.</p>
             <p>You will have 60 seconds total to answer all five questions.</p>
-            <p>Each correct answer is worth <strong>five points</strong>.</p>
+            <p>Think speed! Your final score will be based on amount of time remaining and correct answers.</p>
             <p>Each incorrect answer will result in a 10 second time penalty.</p>
             <p>At the end you will be able to enter your initials and track your high score.</p>
             <p>GOOD LUCK!</p>
@@ -43,7 +43,7 @@
         </div>
     <!-- Div that shows final score and submit initials-->
         <div id="ending">
-            <h3 id="final-score">Final Score: </h3>
+            <h3 id="final-score"></h3>
             <p>Please enter your initials:</p>
             <input type="text" name="initials" id="initials">
             <button type="button" class="btn btn-primary" id="submit">Submit</button>
@@ -51,7 +51,7 @@
     <!-- Div that shows list of final scores, button to clear, button to restart-->
         <div id="scoresList">
             <h3>High Scores:</h3>
-            <ol></ol>
+            <ol id="scoreTally"></ol>
             <div class="row">
                 <div class="col-md-12">
                     <button id="restart">Start Over</button>
